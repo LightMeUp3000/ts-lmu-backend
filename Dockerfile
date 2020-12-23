@@ -7,7 +7,6 @@ RUN npm install
 
 COPY . ./
 
-RUN npm run build
 
 RUN npm prune --production
 
@@ -19,4 +18,4 @@ COPY --from=builder /usr/src/app .
 
 EXPOSE 8080
 
-CMD ["node", "app.js"]
+RUN npm run start
