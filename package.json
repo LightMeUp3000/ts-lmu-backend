@@ -1,0 +1,20 @@
+{
+  "name": "ts-lmu-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"APP TEST\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LightMeUp3000/ts-lmu-backend.git"
+  },
+  "author": "Jakub Lewek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LightMeUp3000/ts-lmu-backend/issues"
+  },
+  "homepage": "https://github.com/LightMeUp3000/ts-lmu-backend#readme"
+}
