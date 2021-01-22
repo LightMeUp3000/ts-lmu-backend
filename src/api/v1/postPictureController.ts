@@ -1,11 +1,16 @@
 import { STATUSES } from "../../utils/httpStatuses";
 
+// Controller url path
+export const postPictureUrl = "/postPicture/:format/:w/:h";
+
+// Main controller method
 export function postPictureController(req, res) {
   const params = req.params.parsed;
 
   res.status(STATUSES.SUCCESS.code).json(params);
 }
 
+// Controller middlewares
 export function postPictureValidationMiddleware(req, res, next) {
   const body = req.body;
 

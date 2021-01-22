@@ -12,6 +12,7 @@ const APP_PORT: number = parseInt( process.env.PORT || '8080' );
 
 app.use(bodyParser.json());
 
+// ATTACH CONTROLLERS VERSIONS
 app.use("/v1/", apiV1Controllers);
 
 app.listen(APP_PORT, (): void => {
