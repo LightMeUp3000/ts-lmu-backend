@@ -1,3 +1,4 @@
+import * as bodyParser from "body-parser";
 import { config } from "dotenv";
 import * as express from "express";
 
@@ -8,6 +9,8 @@ export const app = express();
 
 // tslint:disable-next-line
 const APP_PORT: number = parseInt( process.env.PORT || '8080' );
+
+app.use(bodyParser.json());
 
 app.use("/v1/", apiV1Controllers);
 
