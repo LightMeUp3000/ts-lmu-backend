@@ -1,12 +1,17 @@
-import { config } from 'dotenv'
-config()
-import * as express from 'express'
-import { apiV1Controllers } from './api/v1/controllers'
+import { config } from "dotenv";
+import * as express from "express";
 
-export const app = express()
+import { apiV1Controllers } from "./api/v1/controllers";
+config();
 
-const APP_PORT = process.env.PORT || 8080;
+export const app = express();
 
-app.use('/v1/', apiV1Controllers)
+// tslint:disable-next-line
+const APP_PORT: number = parseInt( process.env.PORT || '8080' );
 
-app.listen(APP_PORT, () => console.log(`Server running on ${process.env.PORT}!`))
+app.use("/v1/", apiV1Controllers);
+
+app.listen(APP_PORT, (): void => {
+  // tslint:disable-next-line
+  console.log(`Server running on ${process.env.PORT}!`);
+});

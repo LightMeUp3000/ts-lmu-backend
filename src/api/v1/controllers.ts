@@ -1,6 +1,8 @@
-import { Router } from 'express';
+import { Router } from "express";
 export const apiV1Controllers: Router = Router();
 
-apiV1Controllers.get('/test', (req, res) => {
-  res.status(200).send('API TEST OK');
-})
+const STATUS_SUCCESSS = 200;
+
+apiV1Controllers.get("/test", (req, res): void => {
+  res.status(STATUS_SUCCESSS).send("API TEST OK");
+});
