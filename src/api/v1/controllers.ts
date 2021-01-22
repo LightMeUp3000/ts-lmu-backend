@@ -2,10 +2,6 @@
 
 import { Router } from "express";
 
-import {
-  initResponseMiddleware,
-  sendResponseMiddleware,
-} from "../../middlewares/responseMiddleware";
 import { STATUSES } from "../../utils/httpStatuses";
 
 import {
@@ -27,11 +23,6 @@ apiV1Controllers.get("/test", (req, res): void => {
 // CONTROLLERS DECLARATIONS
 apiV1Controllers.post(
   pictureUrl,
-
-  initResponseMiddleware,
   pictureValidationMiddleware,
-
-  pictureController,
-
-  sendResponseMiddleware
+  pictureController
 );
