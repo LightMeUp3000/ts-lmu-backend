@@ -4,16 +4,14 @@ import { Router } from "express";
 
 import { STATUSES } from "../../utils/httpStatuses";
 
+// CONTROLLERS IMPORT
 import {
   pictureController,
   pictureUrl,
   pictureValidationMiddleware,
 } from "./pictureController";
+
 export const apiV1Controllers: Router = Router();
-
-// MIDDLEWARES IMPORT
-
-// CONTROLLERS IMPORT
 
 // API TEST SIMPLE CONTROLLER
 apiV1Controllers.get("/test", (req, res): void => {
