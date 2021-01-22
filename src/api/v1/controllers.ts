@@ -7,10 +7,10 @@ import { STATUSES } from "../../utils/httpStatuses";
 
 // CONTROLLERS IMPORT
 import {
-  postPictureController,
-  postPictureUrl,
-  postPictureValidationMiddleware,
-} from "./postPictureController";
+  pictureController,
+  pictureUrl,
+  pictureValidationMiddleware,
+} from "./pictureController";
 
 // API TEST SIMPLE CONTROLLER
 apiV1Controllers.get("/test", (req, res): void => {
@@ -19,7 +19,7 @@ apiV1Controllers.get("/test", (req, res): void => {
 
 // CONTROLLERS DECLARATIONS
 apiV1Controllers.post(
-  postPictureUrl,
-  postPictureValidationMiddleware,
-  postPictureController
+  pictureUrl,
+  pictureValidationMiddleware,
+  pictureController
 );
