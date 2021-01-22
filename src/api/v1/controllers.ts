@@ -1,7 +1,6 @@
 // V1 OF ts-lmu-backend API CONTROLLERS
 
 import { Router } from "express";
-export const apiV1Controllers: Router = Router();
 
 import { STATUSES } from "../../utils/httpStatuses";
 
@@ -11,6 +10,8 @@ import {
   pictureUrl,
   pictureValidationMiddleware,
 } from "./pictureController";
+
+export const apiV1Controllers: Router = Router();
 
 // API TEST SIMPLE CONTROLLER
 apiV1Controllers.get("/test", (req, res): void => {
