@@ -43,14 +43,14 @@ describe('POST ' + CONTROLLER_URL, () => {
 
   test('/jpg/2137/10 with correct body respond with status 400', (done) => {
     request(app)
-      .post(CONTROLLER_URL + '/aaa/10/10')
+      .post(CONTROLLER_URL + '/jpg/2137/10')
       .set('Accept', 'application/json')
       .expect(400, done);
   })
 
   test('/jpg/10/2137 with correct body respond with status 400', (done) => {
     request(app)
-      .post(CONTROLLER_URL + '/aaa/10/10')
+      .post(CONTROLLER_URL + '/jpg/10/2137')
       .set('Accept', 'application/json')
       .expect(400, done);
   })
