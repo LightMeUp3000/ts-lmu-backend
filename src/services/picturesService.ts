@@ -24,6 +24,10 @@ export class PicturesService {
     return getColors(finalPath, this.getColorsOptions);
   }
 
+  public setOptions(options) {
+    this.getColorsOptions = options;
+  }
+
   private async savePicture() {
     return new Promise((resolve, reject) => {
       const fullPath = path.resolve(
