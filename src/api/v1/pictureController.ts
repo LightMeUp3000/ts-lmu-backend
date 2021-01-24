@@ -1,3 +1,4 @@
+import { PicturesService } from "../../services/picturesService";
 import { STATUSES } from "../../utils/httpStatuses";
 import { responseMessageBuilder } from "../../utils/responseMessageBuilder";
 
@@ -5,11 +6,28 @@ import { responseMessageBuilder } from "../../utils/responseMessageBuilder";
 export const pictureUrl = "/picture/:format/:w/:h";
 
 // Main controller method
-export function pictureController(req, res, next) {
+export async function pictureController(req, res, next) {
   if (!req.responseMessage.error) {
     const params = req.params.parsed;
+    const imageDataString = params.body.image.split(";base64,").pop();
+    const imageFormat = params.format;
 
-    req.responseMessage = responseMessageBuilder(STATUSES.SUCCESS.code, params);
+    try {
+      const picture = new PicturesService(imageDataString, imageFormat);
+      const pictureColors = await picture.getColors();
+
+      req.responseMessage = responseMessageBuilder(
+        STATUSES.SUCCESS.code,
+        pictureColors
+      );
+    } catch (e) {
+      // tslint:disable-next-line
+      console.log("Error: ", e);
+      req.responseMessage = responseMessageBuilder(
+        STATUSES.INTERNAL_ERROR.code,
+        STATUSES.INTERNAL_ERROR.message
+      );
+    }
   }
   next();
 }
